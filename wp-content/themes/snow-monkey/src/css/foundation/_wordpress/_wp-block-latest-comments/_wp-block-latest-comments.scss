@@ -1,0 +1,22 @@
+.wp-block-latest-comments {
+  @include widget-list-base();
+
+  &__comment {
+    line-height: inherit;
+  }
+
+  &__comment-meta {
+    @include _font-size-line-height($_base-font-size-px);
+  }
+
+  &__comment-date {
+    @include _font-size-line-height($_base-font-size-px - 4);
+  }
+
+  &__comment-excerpt {
+    > p {
+      margin: 0;
+      @include _font-size-line-height($_base-font-size-px - 2);
+    }
+  }
+}

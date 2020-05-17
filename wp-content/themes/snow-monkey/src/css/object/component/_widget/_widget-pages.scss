@@ -1,0 +1,11 @@
+.widget_pages {
+  @extend %widget-core-list-base;
+
+  .page_item {
+    @include widget-has-children-expander();
+  }
+
+  .children {
+    @include widget-children();
+  }
+}

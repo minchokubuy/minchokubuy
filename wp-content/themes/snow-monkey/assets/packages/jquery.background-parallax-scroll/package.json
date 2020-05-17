@@ -1,0 +1,85 @@
+{
+  "_args": [
+    [
+      "jquery.background-parallax-scroll@3.0.6",
+      "/home/travis/build/inc2734/snow-monkey"
+    ]
+  ],
+  "_from": "jquery.background-parallax-scroll@3.0.6",
+  "_id": "jquery.background-parallax-scroll@3.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-ojRR8W/sKedv+BSlqY6kzJAQ4r3WGtZGqObGOALC8YOp3b5mtj+LsUDeEQSDZdMg0Zy6OQRe0KvFYwVSozfwMg==",
+  "_location": "/jquery.background-parallax-scroll",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "jquery.background-parallax-scroll@3.0.6",
+    "name": "jquery.background-parallax-scroll",
+    "escapedName": "jquery.background-parallax-scroll",
+    "rawSpec": "3.0.6",
+    "saveSpec": null,
+    "fetchSpec": "3.0.6"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/jquery.background-parallax-scroll/-/jquery.background-parallax-scroll-3.0.6.tgz",
+  "_spec": "3.0.6",
+  "_where": "/home/travis/build/inc2734/snow-monkey",
+  "author": {
+    "name": "inc2734"
+  },
+  "bugs": {
+    "url": "https://github.com/inc2734/jquery.background-parallax-scroll/issues"
+  },
+  "description": "## Get started",
+  "devDependencies": {
+    "autoprefixer": "^8.6.5",
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-env": "^1.7.0",
+    "cssnano-cli": "^1.0.5",
+    "node-sass": "^4.9.1",
+    "npm-run-all": "^4.1.3",
+    "postcss-cli": "^5.0.1",
+    "rimraf": "^2.6.2",
+    "rollup": "^0.62.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "rollup-plugin-commonjs": "^9.1.3",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "uglify-js": "^3.4.3"
+  },
+  "files": [
+    "src",
+    "dist",
+    "package.json",
+    "LICENSE",
+    "README.md",
+    "postcss.config.js",
+    "rollup.config.js",
+    "package-lock.json"
+  ],
+  "homepage": "https://github.com/inc2734/jquery.background-parallax-scroll#readme",
+  "license": "MIT",
+  "main": "src/jquery.background-parallax-scroll.js",
+  "name": "jquery.background-parallax-scroll",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inc2734/jquery.background-parallax-scroll.git"
+  },
+  "scripts": {
+    "build": "npm run cleanup && npm-run-all -p js css",
+    "cleanup": "rimraf dist/ && mkdir dist",
+    "css": "npm-run-all -s css:sass css:postcss && npm run minify:css",
+    "css:postcss": "postcss dist/*.css -r --no-map -c=postcss.config.js",
+    "css:sass": "node-sass src -o dist",
+    "js": "npm run js:rollup && npm run minify:js",
+    "js:rollup": "find src -name '*.js' -not -name '_*.js' | xargs -I{} rollup {} -f=iife -c=rollup.config.js --dir dist --experimentalCodeSplitting",
+    "minify:css": "find dist -name '*.css' | xargs -I{} cssnano {} {}.min --no-zindex && find dist -name '*.css.min' | sed 'p;s/.css.min/.min.css/' | xargs -n2 mv",
+    "minify:js": "find dist -name '*.js' | xargs -I{} uglifyjs {} -o {}.min -mc && find dist -name '*.js.min' | sed 'p;s/.js.min/.min.js/' | xargs -n2 mv",
+    "prepublish": "npm run build",
+    "start": "npm run build"
+  },
+  "version": "3.0.6"
+}

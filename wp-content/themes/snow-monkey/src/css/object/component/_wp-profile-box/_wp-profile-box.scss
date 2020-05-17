@@ -1,0 +1,114 @@
+.wp-profile-box {
+  background-color: _lightest($_color-gray);
+  color: $_color-text;
+
+  &__title {
+    border-bottom: 1px solid _lighter($_color-gray);
+    @include _font-size($_base-font-size-px + 2);
+    line-height: 1;
+    @include _padding(.5);
+
+    @include _media-min(md) {
+      @include _padding(.5, 1);
+    }
+  }
+
+  &__container {
+    overflow: hidden;
+    @include _padding(.5);
+
+    @include _media-min(md) {
+      @include _padding(.5, 1);
+    }
+  }
+
+  &__figure {
+    @include _margin($_between-lines, 1, 0, 0);
+
+    @include _media-min(md) {
+      float: left;
+    }
+
+    img {
+      border-radius: 100%;
+      height: auto;
+      width: 48px;
+
+      @include _media-min(md) {
+        width: 96px;
+      }
+    }
+  }
+
+  &__body {
+    overflow: hidden;
+  }
+
+  &__name {
+    @include _margin(0, 0, .25);
+    @include _font-size-line-height($_base-font-size-px);
+  }
+
+  &__content {
+    @include _font-size-line-height($_base-font-size-px - 2);
+  }
+
+  &__sns-accounts {
+    @include _margin(.25, 0, 0);
+    @include _list-unstyled();
+    overflow: hidden;
+  }
+
+  &__sns-accounts-item {
+    margin-right: .5em;
+    display: inline-block;
+    @include _font-size-line-height($_base-font-size-px - 4);
+    font-weight: bold;
+
+    a {
+      color: $_color-text;
+      text-decoration: none;
+
+      @include _hover(lg) {
+      text-decoration: underline;
+      }
+
+      svg {
+        margin-right: 3px;
+      }
+    }
+  }
+
+  &__buttons {
+    @include _margin(.5, 0, 0);
+    padding-bottom: 1px;
+  }
+
+  &__detail-btn, &__archives-btn {
+    @include _btn();
+    border-radius: $_border-radius; // for IE11
+    border-radius: _var-border-radius();
+    @include _font-size($_base-font-size-px - 2);
+    @include _padding(.25, .5);
+    @include _transition(opacity);
+    backface-visibility: hidden;
+    vertical-align: top;
+
+    @include _hover(lg) {
+      opacity: .9;
+    }
+  }
+
+  &__detail-btn {
+    margin-right: .5em;
+    background-color: $color-accent;
+    border: 1px solid $color-accent;
+    color: #fff;
+  }
+
+  &__archives-btn {
+    background-color: #fff;
+    border: 1px solid $color-accent;
+    color: $color-accent;
+  }
+}

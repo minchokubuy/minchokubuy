@@ -1,0 +1,11 @@
+.widget_categories {
+  @extend %widget-core-list-base;
+
+  .cat-item {
+    @include widget-has-children-expander();
+  }
+
+  .children {
+    @include widget-children();
+  }
+}

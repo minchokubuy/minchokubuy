@@ -1,0 +1,63 @@
+.#{ $_prefix }c-page-header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  @include _padding(2, 0);
+
+  &[data-has-image="true"] {
+    min-height: 300px;
+    height: 1px; // For IE11
+    @include _padding(1, 0);
+
+    @include _media-min(md) {
+      min-height: 400px;
+    }
+
+    @include _media-min(lg) {
+      min-height: 500px;
+    }
+
+    .#{ $_prefix }c-page-header__content {
+      color: #fff;
+
+      a {
+        color: #fff;
+      }
+    }
+  }
+
+  &__bgimage {
+    @include cover-img();
+    @include _position(absolute, 0, 0, 0, 0);
+  }
+
+  &__content {
+    position: relative;
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    a {
+      color: $_color-text; // for IE11
+      color: _var-color-text();
+      text-decoration: none;
+
+      @include _hover(lg) {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__meta {
+    @include _margin-top(.25);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    @include _font-size-line-height(12px);
+    font-weight: bold;
+  }
+}

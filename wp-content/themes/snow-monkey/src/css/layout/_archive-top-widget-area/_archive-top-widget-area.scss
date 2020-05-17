@@ -1,0 +1,9 @@
+.#{ $_prefix }l-archive-top-widget-area {
+  @include _margin-bottom(1.5);
+
+  [data-has-sidebar="true"] & {
+    @include _media-min(lg) {
+      @include items-gutter();
+    }
+  }
+}

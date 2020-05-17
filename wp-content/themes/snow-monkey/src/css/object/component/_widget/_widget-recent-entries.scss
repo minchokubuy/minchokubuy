@@ -1,0 +1,9 @@
+.widget_recent_entries {
+  @extend %widget-core-list-base;
+
+  .post-date {
+    display: block;
+    color: _lighter($_color-text);
+    @include _font-size-line-height(11px);
+  }
+}

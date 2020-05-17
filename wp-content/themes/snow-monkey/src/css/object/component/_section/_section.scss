@@ -1,0 +1,14 @@
+.#{ $_prefix }c-section {
+  @extend %section;
+
+  &__title {
+    @extend %widget-title;
+  }
+
+  [data-has-sidebar="true"] [data-is-content-widget-area="true"] & {
+    @include _media-min(lg) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+}

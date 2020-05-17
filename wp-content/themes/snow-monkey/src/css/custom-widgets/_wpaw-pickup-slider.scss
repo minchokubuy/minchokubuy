@@ -1,0 +1,213 @@
+.widget_inc2734_wp_awesome_widgets_pickup_slider {
+  padding: 0;
+}
+
+.wpaw-pickup-slider {
+  &__canvas {
+    overflow: hidden;
+
+    @include _hover(lg) {
+      .slick-arrow {
+        transform: translate(0, -50%);
+      }
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; // For IE11
+
+    .wpaw-pickup-slider__figure {
+      @include _position(absolute, 0, -2em, 0, -2em);
+    }
+  }
+
+  &__figure {
+    transform: translate3d(1em, 0, 0);
+
+    &::before {
+      @include _position(absolute, 0, 0, 0, 0, 1);
+      content: '';
+      display: block;
+      background-color: rgba($_color-black, .4);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .5s ease-in .5s;
+    }
+  }
+
+  &__item-body {
+    position: relative;
+    max-width: 100%;
+    @include _padding(1);
+    transition: opacity .5s ease-in 1s;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden; // For IE11
+  }
+
+  &__item-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include _media-min(md) {
+      max-width: _strip-unit(map-get($_sizes, md)) * 1rem;
+    }
+
+    @include _media-min(lg) {
+      max-width: _strip-unit(map-get($_sizes, lg)) * 1rem;
+    }
+
+    > * {
+      flex: 0 1 auto;
+      max-width: 100%;
+    }
+  }
+
+  &__item-title {
+    position: relative;
+    font-weight: bold;
+    @include _font-size-line-height($_base-font-size-px * 1.25);
+    text-shadow: rgba($_color-text, .3) 1px 1px 3px;
+  }
+
+  &__item-meta {
+    @include _margin(.5, 0, 0);
+    @include _font-size-line-height(11px);
+    text-shadow: rgba($_color-text, .3) 1px 1px 3px;
+
+    img {
+      display: inline-block !important;
+    }
+  }
+
+  &__item-more {
+    @include _margin-top(.5);
+    @include _padding(.5, 1);
+    border: 1px solid #fff;
+
+    &.#{ $_prefix }c-btn {
+      background-color: transparent;
+    }
+
+    @include _media-min(md) {
+      @include _margin-top(1);
+      @include _padding(.5, 2);
+    }
+
+    @include _hover(lg) {
+      background-color: $color-accent;
+      border-color: $color-accent;
+    }
+  }
+
+  .slick-current {
+    .wpaw-pickup-slider__item-body {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  .slick-slide {
+    &.slick-current,
+    &.pan {
+      .wpaw-pickup-slider__figure {
+        @keyframes main_visual_figure_move {
+          from {
+            transform: translate3d(0, 0, 0);
+          }
+          to {
+            transform: translate3d(2em, 0, 0);
+          }
+        }
+
+        animation: main_visual_figure_move 6s linear;
+
+        &::before {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  .slick-arrow {
+    z-index: 1;
+    background-color: $color-accent;
+    border-radius: 0;
+    @include _square(40px);
+    @include _transition(all);
+
+    @include _media-min(md) {
+      @include _square(50px);
+    }
+
+    @include _hover(lg) {
+      filter: brightness(90%);
+    }
+
+    span {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+    transform: translate(-100%, -50%);
+  }
+
+  .slick-next {
+    right: 0;
+    transform: translate(100%, -50%);
+  }
+
+  [data-has-sidebar="true"] [data-is-content-widget-area="true"] &,
+  [data-has-sidebar="true"] .#{ $_prefix }c-entry__content & {
+    @include _media-max(md) {
+      @include widget-full-width();
+    }
+
+    &__item-title {
+      @include _media-only(md) {
+        @include _font-size-line-height($_base-font-size * 2);
+      }
+    }
+  }
+
+  [data-has-sidebar="false"] [data-is-content-widget-area="true"] &,
+  [data-has-sidebar="false"] .#{ $_prefix }c-entry__content & {
+    @include widget-full-width();
+
+    &__item-title {
+      @include _media-min(md) {
+        @include _font-size-line-height($_base-font-size * 2);
+      }
+
+      @include _media-min(lg) {
+        @include _font-size-line-height($_base-font-size * 3);
+      }
+    }
+
+    &__item-meta {
+      @include _media-min(lg) {
+        @include _margin-top(.75);
+      }
+    }
+
+    &__item-more {
+      @include _media-min(lg) {
+        @include _margin-top(1.5);
+        @include _padding(.5, 3);
+      }
+    }
+  }
+}

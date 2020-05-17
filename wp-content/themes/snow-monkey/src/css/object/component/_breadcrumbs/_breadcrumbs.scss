@@ -1,0 +1,21 @@
+.#{ $_prefix }c-breadcrumbs {
+  @include _font-size-line-height(11px);
+  color: #999;
+
+  a {
+    color: #999;
+    text-decoration: none;
+
+    @include _hover(lg) {
+      text-decoration: underline;
+    }
+  }
+
+  .#{ $_prefix }l-contents & {
+    &:first-child,
+    &:last-child {
+      @include _margin-top(.25);
+      @include _margin-bottom(.25);
+    }
+  }
+}

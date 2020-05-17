@@ -1,0 +1,7 @@
+.wp-block-calendar {
+  @extend %calendar;
+
+  table {
+    width: auto !important;
+  }
+}

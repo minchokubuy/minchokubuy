@@ -1,0 +1,13 @@
+%widget-title {
+  @include widget-title();
+}
+
+%widget-core-list-base {
+  ul {
+    @include widget-list-base();
+  }
+
+  a {
+    @include widget-link-base();
+  }
+}

@@ -1,0 +1,37 @@
+.wp-block-pullquote {
+  color: $_color-text;
+  @include _font-size-line-height($_base-font-size-px * 1.5);
+  font-weight: bold;
+  @include _padding(1.5, 0);
+
+  &:not(.is-style-solid-color) {
+    border-top: 4px solid _light($_color-text);
+    border-bottom: 4px solid _light($_color-text);
+  }
+
+  &.is-style-solid-color {
+    blockquote {
+      margin: 0;
+      max-width: none;
+
+      p {
+        @include _font-size-line-height($_base-font-size-px * 1.5);
+      }
+    }
+  }
+
+  &__citation,
+  cite {
+    @extend %blockquote__cite;
+  }
+
+  blockquote {
+    margin: 0;
+    border-left: none;
+    padding: 0;
+
+    p {
+      @include _font-size-line-height($_base-font-size-px * 1.5);
+    }
+  }
+}

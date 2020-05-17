@@ -1,0 +1,17 @@
+.#{ $_prefix }c-meta {
+  &__item {
+    display: inline-block;
+    white-space: nowrap;
+
+    &:not(:last-child) {
+      margin-right: .75em;
+    }
+
+    &--author {
+      img {
+        @include _circle(24px);
+        margin-right: 5px;
+      }
+    }
+  }
+}

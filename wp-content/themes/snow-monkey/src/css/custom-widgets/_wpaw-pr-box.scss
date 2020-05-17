@@ -1,0 +1,90 @@
+.widget_inc2734_wp_awesome_widgets_pr_box {
+  padding: 0;
+}
+
+.wpaw-pr-box {
+  @include _padding(1, .5);
+
+  @include _media-min(md) {
+    @include _padding-right(1);
+    @include _padding-left(1);
+  }
+
+  &--chameleon {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  &__title {
+    @include section-title();
+  }
+
+  &__lead {
+    @include _between-content(.5);
+    @include _margin(.5, 0, 0);
+    @include _font-size-line-height($_base-font-size-px - 2);
+    color: _light($_color-text);
+
+    @include _media-min(md) {
+      @include _margin-top(1);
+    }
+  }
+
+  &__row {
+    @include _margin-top(.5);
+
+    @include _media-min(md) {
+      @include _margin-top(1);
+    }
+  }
+
+  &__item-figure {
+    @include _margin-bottom(.25);
+
+    @include _media-min(lg) {
+      @include _margin-bottom(.75);
+    }
+  }
+
+  &__item-summary {
+    @include _between-content(.5);
+    @include _font-size-line-height($_base-font-size-px - 2);
+
+    @include _media-min(lg) {
+      @include _margin-top(.25);
+    }
+  }
+
+  &__item-action {
+    @include _margin-top(.25);
+
+    @include _media-min(lg) {
+      @include _margin-top(.75);
+    }
+  }
+
+  &__action {
+    @include _margin(.5, 0, 0);
+
+    @include _media-min(md) {
+      @include _margin-top(1);
+    }
+  }
+
+  [data-has-sidebar="true"] [data-is-content-widget-area="true"] & {
+    @include _padding(1.5, 0);
+
+    @include _media-max(md) {
+      @include widget-full-width();
+    }
+  }
+
+  [data-has-sidebar="false"] [data-is-content-widget-area="true"] & {
+    @include widget-full-width();
+    @include _padding(1.5, 0);
+
+    @include _media-min(lg) {
+      @include _padding(3, 0);
+    }
+  }
+}

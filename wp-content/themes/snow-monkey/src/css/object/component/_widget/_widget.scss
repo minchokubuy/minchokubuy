@@ -1,0 +1,29 @@
+.#{ $_prefix }c-widget {
+  word-break: break-word;
+
+  &__title {
+    @extend %widget-title;
+  }
+
+  [data-is-slim-widget-area="true"] & {
+    @include _font-size-line-height($_base-font-size-px - 2);
+
+    &__title {
+      @include _font-size-line-height($_base-font-size-px);
+    }
+  }
+}
+
+@import 'children-expander';
+@import 'widget-meta';
+@import 'widget-recent-entries';
+@import 'widget-recent-comments';
+@import 'widget-archive';
+@import 'widget-categories';
+@import 'widget-pages';
+@import 'widget-nav-menu';
+@import 'widget-calendar';
+@import 'widget-tag-cloud';
+@import 'widget-text';
+
+@import 'snow-monkey-posts';

@@ -1,0 +1,23 @@
+.wp-block-image {
+  margin-bottom: 0;
+
+  figcaption {
+    @include figcaption();
+  }
+
+  &.noshadow {
+    img {
+      box-shadow: none;
+    }
+  }
+
+  > .alignleft,
+  > .alignright {
+    margin-top: $_between-lines;
+  }
+}
+
+img.alignleft,
+img.alignright {
+  margin-top: $_between-lines;
+}

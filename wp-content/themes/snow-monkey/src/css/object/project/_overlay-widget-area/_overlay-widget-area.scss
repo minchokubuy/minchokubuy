@@ -1,0 +1,11 @@
+.#{ $_prefix }p-overlay-widget-area {
+  overflow: auto;
+
+  &__inner {
+    @include _padding(.5);
+
+    @include _media-min(md) {
+      @include _padding(1);
+    }
+  }
+}
